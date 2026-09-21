@@ -12,7 +12,7 @@ const SearchBar = () => {
         const todoObject = {
             id: Date.now(),
             task: inputTask,
-            completed: false
+            isCompleted: false
         }
 
         //Handle submisson logic here
@@ -33,7 +33,7 @@ const SearchBar = () => {
                     className="bg-blue-600 hover:bg-blue-400 active:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition-colors text-sm shadow-sm cursor-pointer "
                 >
                     Add
-                    <Minus></Minus>
+                
                 </button>
             </form>
         </>
