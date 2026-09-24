@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A RESTful API specification for managing tasks in the Todo Application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles",
+    "start": "nodemon index.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.1",
+    "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.2.2"
+  }
+}
