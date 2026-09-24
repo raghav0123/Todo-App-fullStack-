@@ -4,7 +4,7 @@
   "description": "A RESTful API specification for managing tasks in the Todo Application.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --detectOpenHandles",
+    "test": "jest --runInBand --detectOpenHandles --watchAll",
     "start": "nodemon index.js"
   },
   "jest": {
