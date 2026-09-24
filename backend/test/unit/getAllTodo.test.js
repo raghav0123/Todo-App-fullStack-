@@ -1,8 +1,8 @@
-const todoModel = require("../model/todo");
-const getAllTodo = require("../controllers/getAllTodo");
-const todoDto = require("../dtos/todoDto")
+const todoModel = require("../../model/todo");
+const getAllTodo = require("../../controllers/getAllTodo");
+const todoDto = require("../../dtos/todoDto")
 // Mock the Mongoose model
-jest.mock("../model/todo");
+jest.mock("../../model/todo");
 
 describe("getAllTodo Unit Test", () => {
   let req, res;

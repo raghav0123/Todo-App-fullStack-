@@ -1,4 +1,4 @@
-const validateTodo = require('../middlewares/validateTodo')
+const validateTodo = require('../../middlewares/validateTodo')
 
 describe('ValidateTodo middleware', () => {
     let req,res,next;
