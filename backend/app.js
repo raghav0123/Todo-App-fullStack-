@@ -1,6 +1,7 @@
 const express = require("express");
 require('dotenv').config(); 
 const todoRoutes = require('./routes/todoRoutes');
+const userRoutes = require('./routes/userRoutes')
 const cors = require('cors')
 
 
@@ -10,7 +11,7 @@ app.use(express.json());
 
 // Mount your routes here so both tests and index.js can access them
 app.use('/todos', todoRoutes);
-
+app.use('/users', userRoutes)
 app.get('/', (req, res) => {
     res.status(200).send("API is running...");
 });
