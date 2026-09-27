@@ -11,21 +11,28 @@ import { TodoProvider } from './TodoContext.jsx'
 import TodoCard from './TodoCard.jsx'
 import { useTodo } from './TodoContext.jsx'
 import CustomLoader from './CustomLoader.jsx'
-
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import {Login, Register} from './components/index.jsx'
+import Navbar from './components/Navbar.jsx'
+import Home from './components/Home.jsx'
+import { useUser } from './context/UserContext.jsx'
 function MainContent() {
   const { theme, toggleTheme } = useTheme()
   const { todos, setTodos, loading, setLoading } = useTodo()
+    
   // console.log('This is the ',theme)
   return (
     <>
-      <div className={`flex flex-col w-full h-screen ${theme === 'light' ? 'bg-white text-white' : 'bg-gray-800 '} `}>
-        <ThemeButton />
-        <div className='flex w-full  mt-5 p-5 justify-center'>
-          <SearchBar />
-        </div>
+    <div className=  {`h-screen ${theme === 'light' ? 'bg-white text-white' : 'bg-gray-800 '}`}>
+    <Navbar></Navbar>
+      <div className={`flex flex-col w-full h-100 ${theme === 'light' ? 'bg-white text-white' : 'bg-gray-800 '} `}>
         
-        <div className={`cont  mt-10  flex flex-col gap-4 justify-start items-center `} >
-          
+        <div className='flex w-full  mt-5 p-5 justify-center text-8xl text-black'>
+          Welcome to Todo App
+        </div>
+
+        {/* <div className={`cont  mt-10  flex flex-col gap-4 justify-start items-center `} >
+
           {loading ? (
             <CustomLoader />
           ) : (todos?.length > 0 ? (
@@ -43,28 +50,35 @@ function MainContent() {
               <p className="text-gray-400 text-sm">No tasks yet. Add a new task to get started!</p>
             </div>
           ))
-        }
+          }
 
-        </div>
+        </div> */}
 
 
+      </div>
       </div>
     </>
   )
 }
 
 function App() {
-
-
+const { user, setUser, login, register, logout } = useUser()
+console.log(user)
   return (
-    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path = "/" element = {Object.keys(user).length == 0 ? <MainContent />: <Home /> 
+      
+        } /> 
+      <Route path = "/home" element = {<Home />} /> 
+      <Route path = "/login" element = {<Login />} /> 
+      <Route path = "/signup" element = {<Register />} /> 
 
-      <TodoProvider>
-        <ThemeProvider>
-          <MainContent />
-        </ThemeProvider>
-      </TodoProvider>
-    </>
+    </ Routes>
+     </BrowserRouter>
+          
+  
+    
   )
 }
 

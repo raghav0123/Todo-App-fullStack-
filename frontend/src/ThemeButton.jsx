@@ -1,9 +1,21 @@
 import React from 'react'
-import {useTheme} from './themeContext.jsx'
+import { useTheme } from './themeContext.jsx'
+
 const ThemeButton = () => {
-const {theme, toggleTheme} = useTheme()
+  const { theme, toggleTheme } = useTheme()
+
   return (
-    <button onClick={toggleTheme} className={`p-5 bg-${theme === 'light' ? 'gray-800' : 'white'}  text-red cursor-pointer hover:bg-gray-400`}> Switch to {theme == 'light' ? 'Dark' : 'Light'} Mode</button>
+    <button
+      onClick={toggleTheme}
+      title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+      className={`p-2 rounded-full cursor-pointer ${
+        theme === 'light'
+          ? 'bg-gray-800 text-white'
+          : 'bg-white text-black'
+      } hover:scale-110 transition`}
+    >
+      {theme === 'light' ? '🌙' : '☀️'}
+    </button>
   )
 }
 
